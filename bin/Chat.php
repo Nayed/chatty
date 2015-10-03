@@ -1,8 +1,9 @@
 <?php 
 
-use SplObjectStorage;
-use Exception;
+/*use SplObjectStorage;
+use Exception;*/
 use Ratchet\MessageComponentInterface;
+use Ratchet\ConnectionInterface;
 
 class Chat implements MessageComponentInterface
 {
@@ -10,7 +11,7 @@ class Chat implements MessageComponentInterface
 
     public function __construct()
     {
-        $this->clients = splObjectStorage;
+        $this->clients = new \SplObjectStorage;
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -32,7 +33,7 @@ class Chat implements MessageComponentInterface
         $this->clients->detach($conn);
     }
 
-    public function onError(ConnectionInterface $conn, Exception $e)
+    public function onError(ConnectionInterface $conn, \Exception $e)
     {
         echo "The following error occured: " . $e->getMessage();
         $conn->close();
