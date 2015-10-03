@@ -1,5 +1,7 @@
 <?php 
 
+use SplObjectStorage;
+use Exception;
 use Ratchet\MessageComponentInterface;
 
 class Chat implements MessageComponentInterface
