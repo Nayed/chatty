@@ -3,9 +3,9 @@ module Main
   class MainController < Volt::ModelController
 
     before_action :require_login, only: :index
-    
+
     def index
-      # Add code for when the index view is loaded
+      reset_message
     end
 
     def about
@@ -13,6 +13,15 @@ module Main
     end
 
     private
+
+    def send_message
+      store._messages << page._form
+      reset_message
+    end
+
+    def reset_message
+      page._form = Message.new
+    end
 
     # The main template contains a #template binding that shows another
     # template.  This is the path to that template.  It may change based
