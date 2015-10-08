@@ -11,15 +11,15 @@
           <:nav href="/about">About</:nav>
           <:user_templates:menu />
         </ul>
-        
       </div>
     </nav>
+    <br/>
     <:volt:notices />
 
     {{ view main_path, 'body', {controller_group: 'main'} }}
 
     <div class="footer">
-      <p>&copy; Company {{ Time.now.year }}</p>
+      <p>&copy; by Nayed Saïd Ali {{ Time.now.year }}</p>
     </div>
 
   </div>
